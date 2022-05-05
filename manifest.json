@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "Channel points collector",
-    "version": "1.1",
+    "version": "1.2",
     "description": "Automatically collects twitch channel points",
     "homepage_url": "https://github.com/JakobHolkestadMolnes/TwitchAutoCollectExtension",
     "icons": {
@@ -30,7 +30,7 @@
     ],
     "browser_specific_settings": {
         "gecko": {
-            "id": "twtchCollector@dirik.no"
+            "id": "twitchCollector@dirik.no"
         }
     }
 
