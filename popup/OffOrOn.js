@@ -1,22 +1,19 @@
-function saveOptions(e) {
+/**
+ *  Saves options to browser.storage
+ * @param {Event} e Event object
+ * @returns {Promise<void>}
+ */
+async function saveOptions(e) {
     e.preventDefault();
-    browser.storage.sync.set({
+   return await browser.storage.sync.set({
         checked: document.getElementById("switch").checked
     });
 }
 
-function restoreOptions() {
+async function restoreOptions() {
 
-    function setCurrentChoice(result) {
-        document.getElementById("switch").checked = result.checked || false;
-    }
-
-    function onError(error) {
-        console.log(`Error: ${error}`);
-    }
-
-    let getting = browser.storage.sync.get("checked");
-    getting.then(setCurrentChoice, onError);
+    const {checked = false} = await browser.storage.sync.get("checked");
+    document.getElementById("switch").checked = checked;
 }
 
 document.addEventListener("DOMContentLoaded", restoreOptions);
